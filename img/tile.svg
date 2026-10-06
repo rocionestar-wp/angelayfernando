@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+<rect width="80" height="80" fill="#fbf6ee"/>
+<rect x="1.5" y="1.5" width="77" height="77" fill="none" stroke="#c4232f" stroke-width="1.5" rx="2"/>
+<ellipse cx="40" cy="17" rx="6.5" ry="13" fill="#c4232f" transform="rotate(0 40 40)"/><ellipse cx="40" cy="17" rx="6.5" ry="13" fill="#e9a3a8" transform="rotate(45 40 40)"/><ellipse cx="40" cy="17" rx="6.5" ry="13" fill="#c4232f" transform="rotate(90 40 40)"/><ellipse cx="40" cy="17" rx="6.5" ry="13" fill="#e9a3a8" transform="rotate(135 40 40)"/><ellipse cx="40" cy="17" rx="6.5" ry="13" fill="#c4232f" transform="rotate(180 40 40)"/><ellipse cx="40" cy="17" rx="6.5" ry="13" fill="#e9a3a8" transform="rotate(225 40 40)"/><ellipse cx="40" cy="17" rx="6.5" ry="13" fill="#c4232f" transform="rotate(270 40 40)"/><ellipse cx="40" cy="17" rx="6.5" ry="13" fill="#e9a3a8" transform="rotate(315 40 40)"/>
+<circle cx="40" cy="40" r="7" fill="#fbf6ee" stroke="#c4232f" stroke-width="2"/>
+<circle cx="40" cy="40" r="2.6" fill="#c4232f"/>
+<path d="M0 0 q9 3 14 14 M80 0 q-9 3 -14 14 M0 80 q9 -3 14 -14 M80 80 q-9 -3 -14 -14" stroke="#e9a3a8" stroke-width="3" fill="none" stroke-linecap="round"/>
+</svg>

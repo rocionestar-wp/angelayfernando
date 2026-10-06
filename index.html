@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ángela &amp; Fernando — Nos casamos</title>
+<meta name="description" content="Ángela y Fernando se casan el 26 de junio de 2027 en Logroño. Queremos compartirlo contigo.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Limelight&family=Pinyon+Script&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕊️</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="site-header" id="siteHeader">
+  <nav class="nav container">
+    <a href="#hero" class="nav__brand">A&nbsp;&amp;&nbsp;F</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#historia">Nuestra historia</a></li>
+      <li><a href="#boda">El gran día</a></li>
+      <li><a href="#regalos">Regalo</a></li>
+      <li><a href="#rsvp" class="nav__cta">Confirmar asistencia</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero__image" role="img" aria-label="Ángela y Fernando paseando por el campo"></div>
+    <div class="hero__scrim"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow" data-reveal>Save the date</p>
+      <h1 class="hero__names" data-reveal>Ángela <span class="hero__amp">&amp;</span> Fernando</h1>
+      <div class="ornament ornament--hero" data-reveal aria-hidden="true">
+        <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="20" x2="80" y2="20" stroke="currentColor" stroke-width="1"/>
+          <circle cx="100" cy="20" r="4" fill="none" stroke="currentColor" stroke-width="1"/>
+          <path d="M92 20 Q100 10 108 20 Q100 30 92 20" fill="none" stroke="currentColor" stroke-width="1"/>
+          <line x1="120" y1="20" x2="200" y2="20" stroke="currentColor" stroke-width="1"/>
+        </svg>
+      </div>
+      <p class="hero__tagline" data-reveal>Nos casamos</p>
+      <p class="hero__date" id="heroDate" data-reveal>26 de junio de 2027</p>
+    </div>
+    <a href="#historia" class="hero__scroll" aria-label="Bajar a la siguiente sección">
+      <span></span>
+    </a>
+  </section>
+  <div class="tile-band" aria-hidden="true"></div>
+
+  <!-- ============ 8. LA CUENTA ATRÁS ============ -->
+  <section class="countdown" id="countdown">
+    <div class="container container--narrow">
+      <p class="countdown__lead" data-reveal>La cuenta atrás</p>
+      <p class="countdown__text" data-reveal>
+        Después de tantos años, tantos kilómetros y tantos recuerdos...<br>
+        ha llegado el momento de decir “sí, quiero”.
+      </p>
+      <div class="countdown__grid" data-reveal>
+        <div class="countdown__item">
+          <span class="countdown__number" id="cdDays">00</span>
+          <span class="countdown__label">Días</span>
+        </div>
+        <div class="countdown__item">
+          <span class="countdown__number" id="cdHours">00</span>
+          <span class="countdown__label">Horas</span>
+        </div>
+        <div class="countdown__item">
+          <span class="countdown__number" id="cdMinutes">00</span>
+          <span class="countdown__label">Minutos</span>
+        </div>
+        <div class="countdown__item">
+          <span class="countdown__number" id="cdSeconds">00</span>
+          <span class="countdown__label">Segundos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ 2. NUESTRA HISTORIA (mapa lineal) ============ -->
+  <section class="story" id="historia">
+    <div class="container">
+      <p class="eyebrow eyebrow--center">Nuestra historia</p>
+      <h2 class="section-title section-title--center">Todo empezó hace más de siete años...</h2>
+
+      <div class="map">
+        <svg class="map__line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M50 0 C50 6 56 6 56 12.5 C56 25 44 25 44 37.5 C44 50 56 50 56 62.5 C56 75 44 75 44 87.5 C44 94 50 94 50 100"/>
+        </svg>
+      <ol class="map__list">
+        <li class="stop stop--r">
+          <span class="stop__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 8h10v11h11v10H29v11H19V29H8V19h11z"/><path d="M22 14v4M26 30v4" opacity=".0"/></svg></span>
+          <div class="stop__text">
+            <p class="chapter__num">I · Madrid</p>
+            <h3 class="chapter__title">Un encuentro en la farmacia</h3>
+            <p>Nos conocimos en Madrid, casi sin imaginar que aquel encuentro acabaría cambiándonos la vida.</p><p>Ángela llegó a la farmacia de la madre de Fernando en busca de trabajo, y fue allí donde nuestros caminos se cruzaron. Lo que comenzó compartiendo horas de trabajo se fue convirtiendo, poco a poco, en una historia compartida.</p>
+          </div>
+        </li>
+        <li class="stop stop--l">
+          <span class="stop__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22 42 7 33 41 23 29z"/><path d="M23 29 42 7M23 29l-1 10 6-7"/></svg></span>
+          <div class="stop__text">
+            <p class="chapter__num">II · Siete años</p>
+            <h3 class="chapter__title">Kilómetros y recuerdos</h3>
+            <p>Desde entonces han pasado más de siete años llenos de restaurantes, viajes, vuelos entre Logroño y Madrid, una pandemia, muchas aventuras y, sobre todo, un montón de momentos que hoy guardamos como nuestros.</p>
+          </div>
+        </li>
+        <li class="stop stop--r">
+          <span class="stop__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="30" r="11"/><path d="M18 11l3-4h6l3 4-6 7z"/><path d="M18 11h12"/></svg></span>
+          <div class="stop__text">
+            <p class="chapter__num">III · Diciembre de 2025</p>
+            <h3 class="chapter__title">La pregunta más importante</h3>
+            <p>Y en diciembre de 2025 llegó uno de esos momentos que nunca se olvidan. En el Hotel Viura, en una escapada especial, Fernando hizo la pregunta más importante.</p><p class="story__yes">Y Ángela dijo que sí.</p>
+          </div>
+        </li>
+        <li class="stop stop--l">
+          <span class="stop__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 39C10 29 8 20 12 15c4-5 10-3 12 2 2-5 8-7 12-2 4 5 2 14-12 24z"/><path d="M38 8v6M35 11h6" /></svg></span>
+          <div class="stop__text">
+            <p class="chapter__num">IV · El siguiente paso</p>
+            <h3 class="chapter__title">Celebrarlo contigo</h3>
+            <p>Ahora ha llegado el momento de dar el siguiente paso y celebrar nuestro amor rodeados de todas las personas que forman parte de nuestra historia.</p>
+          </div>
+        </li>
+      </ol>
+      </div>
+
+      <div class="story__end">
+        <p class="story__outro-lead">El 26 de junio de 2027 comienza un nuevo capítulo.</p>
+        <p class="story__outro-sub">Y queremos compartirlo contigo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. EL GRAN DÍA + CONFIRMACIÓN ============ -->
+  <section class="split" id="boda">
+    <div class="container">
+      <div class="split__grid">
+
+        <div class="info">
+          <p class="eyebrow">Te esperamos</p>
+          <h2 class="section-title">El gran día</h2>
+          <p class="info__date" id="weddingDate">26 de junio de 2027</p>
+
+          <div class="info__block">
+            <p class="wedding__label">Ceremonia</p>
+            <p class="wedding__time" id="ceremonyTime">12:30 h</p>
+            <p class="wedding__place" id="ceremonyPlace">Catedral de Santa María la Redonda<br>Logroño</p>
+            <a class="btn btn--outline" id="ceremonyMapBtn" href="#" target="_blank" rel="noopener">Ver ubicación</a>
+          </div>
+
+          <div class="info__block">
+            <p class="wedding__label">Celebración</p>
+            <p class="wedding__time wedding__time--text" id="celebrationTime">Tras la ceremonia</p>
+            <p class="wedding__place" id="celebrationPlace">Restaurante La Merced<br>Logroño</p>
+            <a class="btn btn--outline" id="celebrationMapBtn" href="#" target="_blank" rel="noopener">Ver ubicación</a>
+          </div>
+
+          <p class="wedding__note">
+            Después de la ceremonia, continuaremos la celebración juntos.<br>
+            <em>Porque un día así merece ser disfrutado hasta el último brindis.</em>
+          </p>
+        </div>
+
+        <div class="rsvp" id="rsvp">
+          <p class="eyebrow">Antes del 1 de mayo de 2027</p>
+          <h2 class="section-title">Confirma tu asistencia</h2>
+          <div class="rsvp__intro">
+            <p>Nos hace muchísima ilusión poder compartir este día contigo.</p>
+            <p>Para nosotros será muy especial tenerte a nuestro lado en uno de los días más importantes de nuestra vida.</p>
+            <p>Por favor, confirma tu asistencia antes del <strong>1 de mayo de 2027</strong>.</p>
+          </div>
+          <form class="rsvp__form" id="rsvpForm"
+            action="https://formsubmit.co/ajax/angela.ruizdepalacios@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Nueva confirmación de asistencia — Boda Ángela & Fernando">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="form__row">
+          <label for="firstName">Nombre</label>
+          <input type="text" id="firstName" name="nombre" required>
+        </div>
+        <div class="form__row">
+          <label for="lastName">Apellidos</label>
+          <input type="text" id="lastName" name="apellidos" required>
+        </div>
+        <div class="form__row">
+          <label for="guests">Número de acompañantes</label>
+          <input type="number" id="guests" name="acompanantes" min="0" max="10" value="0">
+        </div>
+        <div class="form__row form__row--radio">
+          <span class="form__legend">¿Asistirás?</span>
+          <div class="radio-group">
+            <label><input type="radio" name="asistencia" value="Sí" required> Sí, allí estaré</label>
+            <label><input type="radio" name="asistencia" value="No" required> No podré ir</label>
+          </div>
+        </div>
+        <div class="form__row">
+          <label for="allergies">Alergias o necesidades alimentarias</label>
+          <textarea id="allergies" name="alergias" rows="2"></textarea>
+        </div>
+        <div class="form__row">
+          <label for="message">Mensaje para los novios</label>
+          <textarea id="message" name="mensaje" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn--solid">Enviar confirmación</button>
+        <p class="rsvp__status" id="rsvpStatus" role="status" aria-live="polite"></p>
+      </form>
+          <p class="rsvp__outro">¡Esperamos celebrar contigo!</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. REGALO ============ -->
+  <section class="gifts" id="regalos">
+    <div class="container container--narrow">
+      <div class="gifts__frame" data-reveal>
+        <p class="eyebrow eyebrow--center">Regalo</p>
+        <p class="gifts__text">Lo más importante es que estés con nosotros.</p>
+        <p class="gifts__note">Tu compañía será, sin duda, nuestro mejor regalo.</p>
+        <p class="gifts__note">
+          Si aun así quieres tener un detalle con nosotros, encontrarás aquí toda la información.
+        </p>
+        <p class="gifts__account" data-config="giftAccount"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 9. CIERRE ============ -->
+  <section class="closing" id="cierre">
+    <div class="closing__content container container--narrow">
+      <div class="ornament ornament--closing" data-reveal aria-hidden="true">
+        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40 10 C55 10 55 35 40 40 C25 35 25 10 40 10 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+          <line x1="40" y1="40" x2="40" y2="70" stroke="currentColor" stroke-width="1"/>
+          <path d="M40 55 C33 55 30 62 30 66" fill="none" stroke="currentColor" stroke-width="1"/>
+          <path d="M40 60 C47 60 50 67 50 71" fill="none" stroke="currentColor" stroke-width="1"/>
+        </svg>
+      </div>
+      <p class="closing__text" data-reveal>Estamos deseando vivir este día contigo, brindar, reír y crear juntos nuevos recuerdos que se sumen a nuestra historia.</p>
+      <p class="closing__names" data-reveal>Ángela &amp; Fernando</p>
+      <p class="closing__date" id="closingDate" data-reveal>26.06.2027</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Con todo nuestro cariño, Ángela &amp; Fernando</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
