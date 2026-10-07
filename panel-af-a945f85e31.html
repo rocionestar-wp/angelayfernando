@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel privado — Ángela &amp; Fernando</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔒</text></svg>">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="panel.css">
+</head>
+<body class="panel-body">
+
+<header class="panel-header">
+  <div class="panel-header__in">
+    <p class="panel-header__title">Panel privado · Ángela &amp; Fernando</p>
+    <p class="panel-header__note">Enlace solo para vosotros y la wedding planner — no lo compartáis públicamente.</p>
+  </div>
+</header>
+
+<div id="firebaseWarning" class="panel-warning" hidden>
+  ⚠️ Firebase todavía no está configurado (<code>firebase-config.js</code>). Esta pantalla no podrá
+  guardar ni cargar nada hasta que lo rellenes — mira <code>INSTRUCCIONES-FIREBASE.md</code>.
+</div>
+
+<nav class="panel-tabs" aria-label="Secciones del panel">
+  <button class="panel-tabs__btn is-active" data-tab="invitados" type="button">Invitados</button>
+  <button class="panel-tabs__btn" data-tab="proveedores" type="button">Proveedores</button>
+  <button class="panel-tabs__btn" data-tab="mesas" type="button">Mesas</button>
+</nav>
+
+<main class="panel-main">
+
+  <!-- ============ INVITADOS ============ -->
+  <section class="panel-panel is-active" id="tab-invitados">
+    <div class="panel-stats" id="invitadosStats">
+      <div class="panel-stat"><span class="panel-stat__num" id="statConfirmados">0</span><span class="panel-stat__label">Confirmados</span></div>
+      <div class="panel-stat"><span class="panel-stat__num" id="statAsistentes">0</span><span class="panel-stat__label">Personas en total</span></div>
+      <div class="panel-stat"><span class="panel-stat__num" id="statNoAsisten">0</span><span class="panel-stat__label">No asisten</span></div>
+    </div>
+
+    <div class="panel-table-wrap">
+      <table class="panel-table" id="tablaInvitados">
+        <thead>
+          <tr>
+            <th>Nombre</th><th>Apellidos</th><th>¿Asiste?</th><th>Acomp.</th>
+            <th>Alergias / menú</th><th>Mensaje</th><th>Mesa</th><th>Recibido</th>
+          </tr>
+        </thead>
+        <tbody id="invitadosBody">
+          <tr><td colspan="8" class="panel-empty">Cargando…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ PROVEEDORES ============ -->
+  <section class="panel-panel" id="tab-proveedores">
+    <div class="panel-toolbar">
+      <button class="panel-btn" id="btnAddVendor" type="button">+ Añadir proveedor</button>
+    </div>
+    <div class="panel-table-wrap">
+      <table class="panel-table panel-table--editable" id="tablaProveedores">
+        <thead>
+          <tr>
+            <th style="width:14%">Categoría</th>
+            <th style="width:18%">Nombre</th>
+            <th style="width:14%">Estado</th>
+            <th style="width:16%">Contacto</th>
+            <th>Notas</th>
+            <th style="width:2rem"></th>
+          </tr>
+        </thead>
+        <tbody id="proveedoresBody">
+          <tr><td colspan="6" class="panel-empty">Cargando…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ MESAS (seating plan) ============ -->
+  <section class="panel-panel" id="tab-mesas">
+    <div class="panel-toolbar">
+      <button class="panel-btn" id="btnAddTable" type="button">+ Añadir mesa</button>
+      <p class="panel-toolbar__hint">Arrastra una mesa para colocarla. Arrastra un invitado desde "Sin asignar" hasta una mesa.</p>
+    </div>
+
+    <div class="seating">
+      <aside class="seating__pool">
+        <h3>Sin asignar</h3>
+        <div class="seating__chips" id="chipsSinAsignar">
+          <p class="panel-empty panel-empty--small">Nadie pendiente</p>
+        </div>
+      </aside>
+
+      <div class="seating__canvas" id="seatingCanvas">
+        <!-- las mesas se insertan aquí por JS -->
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- plantilla oculta de una fila de proveedor (se clona por JS) -->
+<template id="plantillaFilaProveedor">
+  <tr data-id="">
+    <td><input type="text" data-field="categoria" placeholder="Catering, música…"></td>
+    <td><input type="text" data-field="nombre" placeholder="Nombre del proveedor"></td>
+    <td>
+      <select data-field="estado">
+        <option value="En conversación">En conversación</option>
+        <option value="Contratado">Contratado</option>
+        <option value="No contratado">No contratado</option>
+      </select>
+    </td>
+    <td><input type="text" data-field="contacto" placeholder="Teléfono / email"></td>
+    <td><input type="text" data-field="notas" placeholder="Notas"></td>
+    <td><button class="panel-row-delete" type="button" title="Eliminar">✕</button></td>
+  </tr>
+</template>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="firebase-init.js"></script>
+<script src="panel.js"></script>
+</body>
+</html>
