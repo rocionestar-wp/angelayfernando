@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ángela &amp; Fernando — ¡Nos casamos!</title>
+<meta name="description" content="El 26 de junio de 2027 nos daremos el «sí, quiero» en Logroño y nos hace muchísima ilusión compartir este día tan especial contigo.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:wght@700;800&family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕊️</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ CABECERA FIJA + MENÚ (tres líneas) ============ -->
+<header class="site-header" id="siteHeader">
+  <nav class="nav container">
+    <a href="#hero" class="nav__brand">A&nbsp;<span class="amp">&amp;</span>&nbsp;F</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav__overlay" id="navOverlay"></div>
+  <ul class="nav__links" id="navLinks">
+    <li><a href="#rsvp">Confirmar asistencia</a></li>
+    <li><a href="#historia">Nuestra historia</a></li>
+    <li><a href="#itinerario">Itinerario</a></li>
+    <li><a href="#pinchos">Guía de pinchos</a></li>
+    <li><a href="#hoteles">Hotel</a></li>
+    <li><a href="#regalos">Regalo</a></li>
+  </ul>
+</header>
+
+<main>
+
+  <!-- ============ 1. PORTADA (imagen estática) ============ -->
+  <section class="hero" id="hero">
+    <div class="hero__image" role="img" aria-label="Ángela y Fernando paseando por el campo"></div>
+    <div class="hero__scrim"></div>
+    <div class="hero__content">
+      <h1 class="hero__names"><span>Ángela</span> <span class="hero__amp amp">&amp;</span> <span>Fernando</span></h1>
+      <p class="hero__date" id="heroDate">26 de junio de 2027</p>
+    </div>
+  </section>
+  <div class="tile-band" aria-hidden="true"></div>
+
+  <!-- ============ 2. CUENTA ATRÁS (blanco) ============ -->
+  <section class="countdown" id="countdown">
+    <div class="container container--narrow">
+      <p class="countdown__text" data-reveal>
+        Después de tantos años, tantos kilómetros y tantos recuerdos...<br>
+        ha llegado el momento de decir “sí, quiero”.
+      </p>
+      <div class="countdown__row" data-reveal>
+        <div class="countdown__item">
+          <span class="countdown__number" id="cdDays">000</span>
+          <span class="countdown__label">Días</span>
+        </div>
+        <span class="countdown__sep" aria-hidden="true">:</span>
+        <div class="countdown__item">
+          <span class="countdown__number" id="cdHours">00</span>
+          <span class="countdown__label">Horas</span>
+        </div>
+        <span class="countdown__sep" aria-hidden="true">:</span>
+        <div class="countdown__item">
+          <span class="countdown__number" id="cdMinutes">00</span>
+          <span class="countdown__label">Minutos</span>
+        </div>
+      </div>
+      <img class="countdown__star" src="img/st-estrella-g.svg" width="34" alt="" aria-hidden="true" data-reveal>
+      <img class="countdown__car" src="img/car-granate.png" width="190" alt="Dibujo de un coche descapotable con un velo de novia" data-reveal>
+    </div>
+  </section>
+
+  <!-- ============ 3. CONFIRMACIÓN DE ASISTENCIA ============ -->
+  <section class="rsvp" id="rsvp">
+    <div class="container container--narrow">
+      <h2 class="section-title section-title--center">Confirmación de asistencia</h2>
+      <div class="rsvp__intro">
+        <p>Nos hace muchísima ilusión poder compartir este día contigo.</p>
+        <p>Por favor, confirma tu asistencia antes del <strong>1 de mayo</strong>.</p>
+      </div>
+
+      <form class="rsvp__form" id="rsvpForm"
+        action="https://formsubmit.co/ajax/noelianietop@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Nueva confirmación de asistencia — Boda Ángela & Fernando">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="form__row">
+          <label for="firstName">Nombre</label>
+          <input type="text" id="firstName" name="nombre" required>
+        </div>
+        <div class="form__row">
+          <label for="lastName">Apellidos</label>
+          <input type="text" id="lastName" name="apellidos" required>
+        </div>
+        <div class="form__row form__row--radio">
+          <span class="form__legend">¿Asistirás?</span>
+          <div class="radio-group">
+            <label><input type="radio" name="asistencia" value="Sí" required> Sí, allí estaré</label>
+            <label><input type="radio" name="asistencia" value="No" required> No podré ir</label>
+          </div>
+        </div>
+        <!-- Solo aparece si se contesta "Sí" -->
+        <div class="rsvp__attending" id="attendingFields" hidden>
+          <div class="form__row">
+            <span class="form__legend">Acompañantes</span>
+            <p class="form__help">Si vienes con alguien, añade a cada persona con su nombre y apellidos.</p>
+            <div id="companions"></div>
+            <input type="hidden" name="acompanantes" id="companionsCount" value="0">
+            <button type="button" class="btn btn--small" id="addCompanion">+ Añadir acompañante</button>
+          </div>
+          <div class="form__row form__row--radio">
+            <span class="form__legend">¿Quieres venir en el autobús?</span>
+            <div class="radio-group">
+              <label><input type="radio" name="autobus" value="Sí" required> Sí, quiero plaza en el bus</label>
+              <label><input type="radio" name="autobus" value="No" required> No, iré por mi cuenta</label>
+            </div>
+          </div>
+          <div class="form__row form__row--radio">
+            <span class="form__legend">¿Necesitas hotel?</span>
+            <div class="radio-group">
+              <label><input type="radio" name="hotel" value="Sí" required> Sí</label>
+              <label><input type="radio" name="hotel" value="No" required> No</label>
+            </div>
+          </div>
+          <div class="form__row">
+            <label for="allergies">Alergias o necesidades alimentarias</label>
+            <textarea id="allergies" name="alergias" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="form__row">
+          <label for="message">Mensaje para los novios</label>
+          <textarea id="message" name="mensaje" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn--solid">Enviar confirmación</button>
+        <p class="rsvp__status" id="rsvpStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ 4. NUESTRA HISTORIA ============ -->
+  <section class="story" id="historia">
+    <div class="container">
+      <h2 class="section-title section-title--center">Nuestra historia</h2>
+
+      <div class="map">
+        <svg class="map__line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M50 0 C50 8 56 8 56 16.7 C56 33 44 33 44 50 C44 66 56 66 56 83.3 C56 92 50 92 50 100"/>
+        </svg>
+        <ol class="map__list">
+          <li class="stop stop--r">
+            <span class="stop__icon" aria-hidden="true"><img src="img/st-farmacia-g.svg" width="54" alt=""></span>
+            <div class="stop__text">
+              <p class="chapter__num">Madrid</p>
+              <h3 class="chapter__title">Un encuentro en la farmacia</h3>
+              <p>Como muchos ya sabéis, se conocieron en Madrid. Ángela llegó a la farmacia de la madre de Fernando en busca de trabajo, y allí fue donde sus caminos se cruzaron. Lo que comenzó como trabajo se fue convirtiendo, poco a poco, en el comienzo de su historia juntos.</p>
+            </div>
+          </li>
+          <li class="stop stop--l">
+            <span class="stop__icon" aria-hidden="true"><img src="img/st-avion-g.svg" width="64" alt=""></span>
+            <div class="stop__text">
+              <p class="chapter__num">Siete años después</p>
+              <h3 class="chapter__title">Kilómetros y recuerdos</h3>
+              <p>Desde entonces han pasado más de siete años, cientos de recuerdos inolvidables a sus espaldas, viajes, mucha gastronomía y algún que otro vuelo Logroño~Madrid…</p>
+            </div>
+          </li>
+          <li class="stop stop--r">
+            <span class="stop__icon" aria-hidden="true"><img src="img/st-anillos-g.svg" width="76" alt=""></span>
+            <div class="stop__text">
+              <p class="chapter__num">Diciembre de 2025</p>
+              <h3 class="chapter__title">¿Quieres casarte conmigo?</h3>
+              <p>En diciembre del 2025 llegó uno de esos momentos que nunca se olvidan. Fernando preparó una escapada al hotel Viura con una cena perfecta, pero antes, en una noche heladora, quiso dar una vuelta por Villabuena. Y allí, en medio de la plaza mayor, llegó la gran pregunta: ¿quieres casarte conmigo?</p>
+              <p>Y Ángela dijo SÍ QUIERO.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="story__end">
+        <img class="story__cupid" src="img/cupido.png" width="150" alt="" aria-hidden="true" data-reveal>
+        <p class="story__outro-sub">El 26 de junio estamos deseando celebrarlo con todos vosotros.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. ITINERARIO (granate) ============ -->
+  <section class="itinerary" id="itinerario">
+    <div class="container">
+      <h2 class="section-title section-title--center">Itinerario</h2>
+      <p class="itinerary__day">Sábado 26/06/27</p>
+
+      <div class="itinerary__grid">
+        <article class="event" data-reveal>
+          <h3 class="event__title">Ceremonia religiosa</h3>
+          <img class="event__draw" src="img/st-catedral-b.png" height="130" alt="" aria-hidden="true">
+          <p class="event__place" id="ceremonyPlace">Catedral de Santa María la Redonda<br>Logroño</p>
+          <p class="event__time event__time--hora" id="ceremonyTime">12:30 h</p>
+          <a class="btn" id="ceremonyMapBtn" href="#" target="_blank" rel="noopener">Ver mapa</a>
+        </article>
+
+        <article class="event" data-reveal>
+          <h3 class="event__title">Celebración</h3>
+          <img class="event__draw" src="img/st-tarta-b.png" height="130" alt="" aria-hidden="true">
+          <p class="event__place" id="celebrationPlace">Restaurante La Merced<br>Logroño</p>
+          <p class="event__time" id="celebrationTime">Tras la ceremonia</p>
+          <a class="btn" id="celebrationMapBtn" href="#" target="_blank" rel="noopener">Ver mapa</a>
+        </article>
+      </div>
+
+      <article class="event event--wide" data-reveal>
+        <h3 class="event__title">Autobuses</h3>
+        <img class="event__draw event__draw--bus" src="img/st-bus-b.png" height="90" alt="" aria-hidden="true">
+        <p class="event__bus"><strong>Después de la ceremonia:</strong> autobús para quien lo necesite, para ir al sitio de la celebración.</p>
+        <p class="event__bus"><strong>Después de la celebración:</strong> autobús para quien lo necesite, para volver.</p>
+        <p class="event__bus-note">¿Lo necesitas? Indícalo en la <a href="#rsvp">confirmación de asistencia</a>.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 6. GUÍA DE PINCHOS ============ -->
+  <section class="pinchos" id="pinchos">
+    <div class="container container--narrow">
+      <h2 class="section-title section-title--center">Nuestra guía de pinchos</h2>
+      <p class="pinchos__text" data-reveal>
+        Para todos los que venís de fuera, queremos compartir con vosotros nuestra ruta favorita de pinchos por la calle más famosa de La Rioja: la calle Laurel.
+      </p>
+      <p class="pinchos__note" data-reveal>Os pasaremos todos los pinchos muy pronto.</p>
+    </div>
+  </section>
+
+  <!-- ============ 7. HOTELES ============ -->
+  <section class="hotels" id="hoteles">
+    <div class="container container--narrow">
+      <h2 class="section-title section-title--center">Hotel</h2>
+      <p class="hotels__intro hotels__intro--lead">¿Vienes de fuera y necesitas alojamiento?</p>
+      <p class="hotels__intro">Estamos en contacto con un hotel en Logroño para facilitar el alojamiento a quienes vengáis de fuera. Para poder organizarlo, nos gustaría saber cuántas personas estaríais interesadas en alojaros allí.</p>
+      <p class="hotels__intro">Si crees que vas a necesitar alojamiento, háznoslo saber en la <a href="#rsvp">confirmación de asistencia</a>. Así podremos valorar las opciones con el hotel y ofreceros más información próximamente.</p>
+      <p class="hotels__intro">¡Os mantendremos al tanto de todas las novedades!</p>
+      <ul class="hotels__list" id="hotelsList"></ul>
+    </div>
+  </section>
+
+  <!-- ============ 8. REGALO ============ -->
+  <section class="gifts" id="regalos">
+    <div class="container container--narrow">
+      <div class="gifts__frame" data-reveal>
+        <h2 class="section-title section-title--center">Regalo</h2>
+        <p class="gifts__text">Lo más importante para nosotros es vuestra compañía.</p>
+        <p class="gifts__note">
+          Si además queréis formar parte de nuestros próximos sueños o tener un detalle con nosotros en esta nueva etapa, aquí encontraréis toda la información.
+        </p>
+        <p class="gifts__account" data-config="giftAccount"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 9. FOTO FINAL ============ -->
+  <section class="closing" id="cierre">
+    <div class="container">
+      <div class="closing__arch" data-reveal>
+        <img src="img/foto-final.jpg" width="800" height="1000" loading="lazy" alt="Ángela y Fernando abrazados en el campo">
+        <img class="closing__strip" src="img/cabina-fotos.png" width="84" loading="lazy" alt="" aria-hidden="true">
+      </div>
+      <p class="closing__text" data-reveal>Deseando vivir este día con vosotros.</p>
+    </div>
+  </section>
+
+  <div class="tile-band" aria-hidden="true"></div>
+
+</main>
+
+<!-- ============ 10. DESPEDIDA (granate) ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <p class="site-footer__lead">Con todo nuestro cariño</p>
+    <p class="site-footer__names">Ángela <span class="amp">&amp;</span> Fernando</p>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="firebase-init.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
